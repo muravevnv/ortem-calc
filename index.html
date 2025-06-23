@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Ortem Calc</title>
+</head>
+
+<body>
+  <div class="ortem-calc">
+    <div class="ortem-calc__container">
+      <div class="ortem-calc__tabs">
+        <button class="ortem-calc__tab tab-btn is-active" data-tab="oprtonodontiya">Ортодонтия</button>
+        <button class="ortem-calc__tab tab-btn" data-tab="implantation">Имплантация</button>
+      </div>
+      <div class="ortem-calc__content">
+        <div class="ortem-calc__section tab-content" id="oprtonodontiya">
+          <div class="ortem-calc-block">
+            <form class="ortem-calc-form" id="orthoCalc">
+              <div class="ortem-calc-form__item">
+                <div class="ortem-calc-form__item-head">
+                  <div class="ortem-calc-form__item-num">1</div>
+                  <div class="ortem-calc-form__item-select">
+                    <select name="system" id="system" required>
+                      <option value="">Система</option>
+                      <option value="clearcorrect">Элайнеры ClearCorrect</option>
+                      <option value="damon_clear">Брекеты Damon Clear 2</option>
+                      <option value="damon_combo">Брекеты Damon Clear 2+Q2</option>
+                      <option value="damon_q2">Брекеты Damon Q2</option>
+                      <option value="protect">Брекеты Protect</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ortem-calc-form__item">
+                <div class="ortem-calc-form__item-head">
+                  <div class="ortem-calc-form__item-num">2</div>
+                  <div class="ortem-calc-form__item-title">Срок лечения</div>
+                  <div class="ortem-calc-form__tooltip">
+                    <div class="ortem-calc-form__tooltip-item">
+                      <img src="img/question.svg" alt="">
+                    </div>
+                    <div class="ortem-calc-form__tooltip-popup">
+                      Зависит от сложности, тактики и квалификации врача. В среднем — 2 года. Срок фиксируем: не
+                      уложимся, долечим бесплатно!
+                    </div>
+                  </div>
+                </div>
+                <div class="ortem-calc-form__item-radios" id="duration-radios">
+                  <!-- Для элайнеров -->
+                  <div class="ortem-calc-form__item-radio ortem-calc-form__item-radio--left" data-type="aligners">
+                    <input type="radio" id="id_years_0.5" name="id_years" value="0.5"
+                      class="ortem-calc-form__item-radio-input" checked>
+                    <label for="id_years_0.5" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">0.5 года</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio" data-type="aligners">
+                    <input type="radio" id="id_years_1" name="id_years" value="1"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_1" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">1 год</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio" data-type="aligners">
+                    <input type="radio" id="id_years_1.5" name="id_years" value="1.5"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_1.5" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">1.5 года</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio" data-type="aligners">
+                    <input type="radio" id="id_years_2" name="id_years" value="2"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_2" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">2 года</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio ortem-calc-form__item-radio--right" data-type="aligners">
+                    <input type="radio" id="id_years_2.5" name="id_years" value="2.5"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_2.5" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">2.5 года</span>
+                    </label>
+                  </div>
+
+                  <!-- Для брекетов -->
+                  <div class="ortem-calc-form__item-radio ortem-calc-form__item-radio--left" data-type="brackets"
+                    style="display: none;">
+                    <input type="radio" id="id_years_1_b" name="id_years" value="1"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_1_b" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">1 год</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio" data-type="brackets" style="display: none;">
+                    <input type="radio" id="id_years_1.5_b" name="id_years" value="1.5"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_1.5_b" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">1.5 года</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio" data-type="brackets" style="display: none;">
+                    <input type="radio" id="id_years_2_b" name="id_years" value="2"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_2_b" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">2 года</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio ortem-calc-form__item-radio--right" data-type="brackets"
+                    style="display: none;">
+                    <input type="radio" id="id_years_2.5_b" name="id_years" value="2.5"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_years_2.5_b" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">2.5 года</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ortem-calc-form__item">
+                <div class="ortem-calc-form__item-head">
+                  <div class="ortem-calc-form__item-num">3</div>
+                  <div class="ortem-calc-form__item-title">Количество минивинтов</div>
+                  <div class="ortem-calc-form__tooltip">
+                    <div class="ortem-calc-form__tooltip-item">
+                      <img src="img/question.svg" alt="">
+                    </div>
+                    <div class="ortem-calc-form__tooltip-popup">Дополнительный опорный элемент в брекет-системе.
+                      Требуется в 40% случаев.</div>
+                  </div>
+                </div>
+                <div class="ortem-calc-form__item-radios">
+                  <div class="ortem-calc-form__item-radio">
+                    <input type="radio" id="id_minivints_0" name="id_minivints" value="0" checked
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_minivints_0" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">0</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio">
+                    <input type="radio" id="id_minivints_1" name="id_minivints" value="1"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_minivints_1" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">1</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio">
+                    <input type="radio" id="id_minivints_2" name="id_minivints" value="2"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_minivints_2" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">2</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio">
+                    <input type="radio" id="id_minivints_3" name="id_minivints" value="3"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_minivints_3" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">3</span>
+                    </label>
+                  </div>
+                  <div class="ortem-calc-form__item-radio">
+                    <input type="radio" id="id_minivints_4" name="id_minivints" value="4"
+                      class="ortem-calc-form__item-radio-input">
+                    <label for="id_minivints_4" class="ortem-calc-form__item-radio-label">
+                      <span class="ortem-calc-form__item-radio-toggler"></span>
+                      <span class="ortem-calc-form__item-radio-content">4</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ortem-calc-form__item">
+                <div class="ortem-calc-form__item-head">
+                  <div class="ortem-calc-form__item-num">4</div>
+                  <div class="ortem-calc-form__item-select">
+                    <select id="installment" required>
+                      <option value="">Длительность рассрочки</option>
+                      <option value="0">Оплата сразу</option>
+                      <option value="6">6 месяцев</option>
+                      <option value="12">12 месяцев</option>
+                      <option value="16">16 месяцев</option>
+                      <option value="22">22 месяца</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ortem-calc-form__checkboxes">
+                <div class="ortem-calc-form__checkboxes-item">
+                  <div class="ortem-calc-form__checkbox">
+                    <input type="checkbox" id="id_need_orthodontics">
+                    <label for="id_need_orthodontics">Требуется ортогнатическая операция</label>
+                  </div>
+                  <div class="ortem-calc-form__tooltip">
+                    <div class="ortem-calc-form__tooltip-item">
+                      <img src="img/question.svg" alt="">
+                    </div>
+                    <div class="ortem-calc-form__tooltip-popup">Проводится для коррекции скелетных аномалий при согласии
+                      пациента.</div>
+                  </div>
+                </div>
+                <div class="ortem-calc-form__checkboxes-item">
+                  <div class="ortem-calc-form__checkbox">
+                    <input type="checkbox" id="id_without_prosthetics">
+                    <label for="id_without_prosthetics">Без КТ и профгигиен</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ortem-calc-form__action">
+                <button type="button" class="ortem-calc-form__action-btn" id="calcBtn">Рассчитать цену</button>
+                <button type="button" class="ortem-calc-form__action-btn" id="saveBtn" disabled>Зафиксировать
+                  цену</button>
+              </div>
+            </form>
+
+            <div class="ortem-calc-total hidden" id="resultBlock">
+              <div class="ortem-calc-total__content" id="result"></div>
+            </div>
+          </div>
+        </div>
+        <div class="ortem-calc__section tab-content" id="implantation" style="display: none;">
+          <div class="ortem-calc-plug">
+            Раздел "Имплантация". Здесь скоро будет калькулятор или информация.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div class="ortem-popup" id="fixPrice">
+    <div class="ortem-popup__inner">
+      <div class="ortem-popup__head">
+        <div class="ortem-popup__title">Зафиксируйте стоимость </div>
+        <div class="ortem-popup__desc">
+          Оставьте контакты, и мы свяжемся с вами в ближайшее время
+        </div>
+      </div>
+      <form action="" class="ortem-popup__form">
+        <div class="ortem-form-group">
+          <input type="text" class="ortem-form-control">
+        </div>
+        <div class="ortem-form-group">
+          <input type="text" class="ortem-form-control">
+        </div>
+        <div class="ortem-form-group">
+          <div class="ortem-form-select">
+            <select name="" id="">
+              <option value="1">Напишите мне в WhatsApp</option>
+              <option value="2">Напишите мне в Телеграм</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="ortem-btn">Зафиксировать цену</button>
+        <div class="ortem-form-checkbox">
+          Нажимая на кнопку «Записаться», я принимаю условия пользовательского соглашения и даю согласие на обработку
+          своих персональных данных.
+        </div>
+      </form>
+      <div class="ortem-form-links">
+        <div class="ortem-form-links__title">Или свяжитесь с нами прямо сейчас</div>
+        <div class="ortem-form-links__list">
+          <a href="#" class="ortem-form-links__item"></a>
+          <a href="#" class="ortem-form-links__item"></a>
+          <a href="#" class="ortem-form-links__item"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ortem-popup" id="consultation">
+    <div class="ortem-popup__inner">
+      <div class="ortem-popup__head">
+        <div class="ortem-popup__title">Запишитесь на онлайн-консультацию</div>
+        <div class="ortem-popup__desc">
+          Оставьте контакты, и мы свяжемся с вами в ближайшее время
+        </div>
+      </div>
+      <form action="" class="ortem-popup__form">
+        <div class="ortem-form-group">
+          <input type="text" class="ortem-form-control">
+        </div>
+        <div class="ortem-form-group">
+          <input type="text" class="ortem-form-control">
+        </div>
+        <div class="ortem-form-group">
+          <div class="ortem-form-select">
+            <select name="" id="">
+              <option value="1">Напишите мне в WhatsApp</option>
+              <option value="2">Напишите мне в Телеграм</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="ortem-btn">Записаться на онлайн-консультацию</button>
+        <div class="ortem-form-checkbox">
+          Нажимая на кнопку «Записаться», я принимаю условия пользовательского соглашения и даю согласие на обработку
+          своих персональных данных.
+        </div>
+      </form>
+      <div class="ortem-form-links">
+        <div class="ortem-form-links__title">Или свяжитесь с нами прямо сейчас</div>
+        <div class="ortem-form-links__list">
+          <a href="#" class="ortem-form-links__item"></a>
+          <a href="#" class="ortem-form-links__item"></a>
+          <a href="#" class="ortem-form-links__item"></a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
