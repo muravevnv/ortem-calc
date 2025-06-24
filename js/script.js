@@ -198,24 +198,29 @@ function calculate(forceShow = false) {
     switch (duration) {
       case "0.5":
         durationCost = 157000;
+        durationCTPG = 28400;
         break;
       case "1":
         durationCost = 252000;
+        durationCTPG = 42600;
         break;
       case "1.5":
         durationCost = 308000;
+        durationCTPG = 56800;
         break;
       case "2":
         durationCost = 358000;
+        durationCTPG = 56800;
         break;
       case "2.5":
         durationCost = 358000;
+        durationCTPG = 56800;
         break;
     }
   }
 
   const miniscrewsCost = miniscrewsNum * 12000;
-  const ctpgCost = apparatusType === "brackets" ? durationCTPG : 0;
+  const ctpgCost = durationCTPG;
   const removalCost = apparatusType === "brackets" ? 38800 : 30800;
 
   let total = 0;
@@ -223,24 +228,16 @@ function calculate(forceShow = false) {
   let payExtraCTPG = 0;
 
   if (apparatusType === "brackets") {
-    total =
-      avans +
-      apparatusInstall +
-      durationCost +
-      miniscrewsCost +
-      ctpgCost +
-      removalCost;
+    total = avans + apparatusInstall + durationCost + miniscrewsCost + ctpgCost + removalCost;
     totalForInstallment = noCTPG
       ? apparatusInstall + durationCost + miniscrewsCost + removalCost
-      : apparatusInstall +
-        durationCost +
-        miniscrewsCost +
-        ctpgCost +
-        removalCost;
+      : apparatusInstall + durationCost + miniscrewsCost + ctpgCost + removalCost;
     payExtraCTPG = noCTPG ? ctpgCost : 0;
   } else {
-    total = avans + durationCost + miniscrewsCost + removalCost;
-    totalForInstallment = durationCost + miniscrewsCost + removalCost;
+    // Для элайнеров
+    total = avans + durationCost + miniscrewsCost + (noCTPG ? 0 : ctpgCost) + removalCost;
+    totalForInstallment = durationCost + miniscrewsCost + (noCTPG ? 0 : ctpgCost) + removalCost;
+    payExtraCTPG = noCTPG ? ctpgCost : 0;
   }
 
   // Формирование результата
@@ -272,7 +269,8 @@ function calculate(forceShow = false) {
         </div>
     `;
 
-    if (apparatusType === "brackets" && noCTPG && payExtraCTPG > 0) {
+    // Показываем стоимость КТ и профгигиен, если чекбокс отмечен (для всех типов аппаратов)
+    if (noCTPG && payExtraCTPG > 0) {
       html += `
         <div class="ortem-calc-total__service">
           <b>КТ и профгигиены за курс</b>
@@ -362,15 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       calculate();
     }
-  });
-
-  document.getElementById("calcBtn").addEventListener("click", function () {
-    calculate(true);
-  });
-
-  document.getElementById("saveBtn").addEventListener("click", function () {
-    calculate(true);
-    // Здесь можно добавить логику фиксации цены
   });
 
   // Первоначальная инициализация
