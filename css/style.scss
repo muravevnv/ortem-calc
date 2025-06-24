@@ -178,7 +178,13 @@ body {
           padding: 4px 32px 4px 12px;
           font-size: 14px;
         }
+      }
 
+      option {
+
+        &[hidden] {
+          display: none;
+        }
       }
     }
 

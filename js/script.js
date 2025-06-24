@@ -15,23 +15,23 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 // Конфигурация аппаратов
 const apparatusInfo = {
   clearcorrect: {
-    comment: "Элайнеры (прозрачные капы)",
+    comment: "Элайнеры Clear Correct(прозрачные капы)",
     type: "aligners",
   },
   damon_clear: {
-    comment: "Керамические, США",
+    comment: "Брекеты Damon Clear 2, Керамические, США",
     type: "brackets",
   },
   damon_combo: {
-    comment: "Комбинированные, США",
+    comment: "Брекеты Damon Clear 2+Q2, Комбинированные, США",
     type: "brackets",
   },
   damon_q2: {
-    comment: "Металлические, США",
+    comment: "Брекеты Damon Q2, Металлические, США",
     type: "brackets",
   },
   protect: {
-    comment: "Металлические, КНР",
+    comment: "Брекеты Protect, Металлические, КНР",
     type: "brackets",
   },
 };
@@ -310,7 +310,7 @@ function calculate(forceShow = false) {
         <li>Ретенционная капа</li>
         ${
           !noCTPG
-            ? "<li>Профессиональная гигиена в процессе и после завершения ортодонтии</li>"
+            ? "<li>Профессиональная гигиена и КТ в процессе и после завершения ортодонтии</li>"
             : ""
         }
       </ul>
