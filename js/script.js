@@ -15,7 +15,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 // Конфигурация аппаратов
 const apparatusInfo = {
   clearcorrect: {
-    comment: "Элайнеры Clear Correct(прозрачные капы)",
+    comment: "Элайнеры Clear Correct (прозрачные капы)",
     type: "aligners",
   },
   damon_clear: {
@@ -273,7 +273,7 @@ function calculate(forceShow = false) {
     if (noCTPG && payExtraCTPG > 0) {
       html += `
         <div class="ortem-calc-total__service">
-          <b>КТ и профгигиены за курс</b>
+          <b>КТ и профгигиены за курс, оплачивается отдельно</b>
           <span>${formatRub(payExtraCTPG)}</span>
         </div>
       `;
